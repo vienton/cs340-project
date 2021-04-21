@@ -1,0 +1,143 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">NPRS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="/reserve">Reserve</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/parks">Parks</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/reservations">Reservations</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/visitors">Visitors</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/businesses">Businesses</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/services">Services</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="jumbotron">
+    <h1 class="display-4 text-center">U.S. National Parks</h1>
+        <p class="lead text-center">Insert/Update/Delete a Park.</p>
+        <p class="text-center text-danger">GRADER: Please review page in Firefox</p>
+</div>
+<div class="container pb-5">
+    <p class="lead text-center">Table data can be edited directly, then click Update to save to database.</p>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Park Name</th>
+                <th scope="col">State</th>
+                <th scope="col">Acreage</th>
+                <th scope="col">Capacity</th>
+                <th scope="col" class="text-center col-2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each parks}}
+                <tr>
+                    <th scope="row">{{parkID}}</th>
+                    <td contenteditable>{{name}}</td>
+                    <td contenteditable>{{state}}</td>
+                    <td contenteditable>{{acreage}}</td>
+                    <td contenteditable>{{capacity}}</td>
+                    <td class="text-center col-2">
+                        <button type="submit" class="btn btn-sm btn-info mr-1" onclick="updatePark(this)">Update</button>
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="deletePark({{parkID}})">Delete</button>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <hr class="border-secondary">
+    <h2 class="text-center">Insert a National Park</h2>
+    <p class="lead text-center">All fields are required.</p>
+    <form id="insertPark" action="/parks" method="post">
+        <div class="form-row">
+            <div class="col-5">
+                <input type="text" class="form-control" placeholder="Park Name" name="name" required>
+            </div>
+            <div class="col-2">
+                <select select id="state" class="form-control" name="state">
+                        <option>Alabama</option>
+                        <option>Alaska</option>
+                        <option>American Samoa</option>
+                        <option>Arizona</option>
+                        <option>Arkansas</option>
+                        <option>California</option>
+                        <option>Colorado</option>
+                        <option>Connecticut</option>
+                        <option>Delaware</option>
+                        <option>District Of Columbia</option>
+                        <option>Florida</option>
+                        <option>Georgia</option>
+                        <option>Guam</option>
+                        <option>Hawaii</option>
+                        <option>Idaho</option>
+                        <option>Illinois</option>
+                        <option>Indiana</option>
+                        <option>Iowa</option>
+                        <option>Kansas</option>
+                        <option>Kentucky</option>
+                        <option>Louisiana</option>
+                        <option>Maine</option>
+                        <option>Maryland</option>
+                        <option>Massachusetts</option>
+                        <option>Michigan</option>
+                        <option>Minnesota</option>
+                        <option>Mississippi</option>
+                        <option>Missouri</option>
+                        <option>Montana</option>
+                        <option>Nebraska</option>
+                        <option>Nevada</option>
+                        <option>New Hampshire</option>
+                        <option>New Jersey</option>
+                        <option>New Mexico</option>
+                        <option>New York</option>
+                        <option>North Carolina</option>
+                        <option>North Dakota</option>
+                        <option>Northern Mariana Islands</option>
+                        <option>Ohio</option>
+                        <option>Oklahoma</option>
+                        <option>Oregon</option>
+                        <option>Pennsylvania</option>
+                        <option>Puerto Rico</option>
+                        <option>Rhode Island</option>
+                        <option>South Carolina</option>
+                        <option>South Dakota</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>US Minor Outlying Islands</option>
+                        <option>Utah</option>
+                        <option>Vermont</option>
+                        <option>Virgin Islands</option>
+                        <option>Virginia</option>
+                        <option>Washington</option>
+                        <option>West Virginia</option>
+                        <option>Wisconsin</option>
+                        <option>Wyoming</option>
+                </select>
+            </div>
+            <div class="col-2">
+                <input type="number" class="form-control" placeholder="Acreage" name="acreage" min="0"  required>
+            </div>
+            <div class="col-2">
+                <input type="number" class="form-control" placeholder="Capacity" name="capacity" min="0" required>
+            </div>
+           <div class="col-auto">
+               <button type="submit" class="btn btn-primary mb-2">Insert</button>
+            </div>
+        </div>
+    </form>
+</div>

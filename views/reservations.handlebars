@@ -1,0 +1,81 @@
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">NPRS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/reserve">Reserve</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/parks">Parks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/reservations">Reservations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/visitors">Visitors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/businesses">Businesses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/services">Services</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <h1 class="display-4 text-center">Reservations</h1>
+            <p class="lead text-center">Insert/Update/Delete a Reservation.</p>
+            <p class="text-center text-danger">GRADER: Please review page in Firefox</p>
+    </div>
+    <div class="container pb-5">
+        <p class="lead text-center">Table data can be edited directly, then click Update to save to database.</p>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Visitor ID (NULLable)</th>
+                    <th scope="col">Reservation Date (Y-M-D)</th>
+                    <th scope="col" class="text-center col-2">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each reservations}}
+                    <tr>
+                        <th scope="row">{{reservationID}}</th>
+                        <td contenteditable>{{visitorID}}</td>
+                        <td contenteditable>{{reservationDate}}</td>
+                        <td class="text-center col-2">
+                            <button type="submit" class="btn btn-sm btn-info mr-1" onclick="updateReservation(this)">Update</button>
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="deleteReservation({{reservationID}})">Delete</button>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <hr class="border-secondary">
+        <h2 class="text-center">Insert a Reservation</h2>
+        <p class="lead text-center">All fields are required.</p>
+        <form id="insertReservation" action="/reservations" method ="post">
+            <div class="form-row">
+                <div class="col-2">
+                    <label for="visitorIDs">Visitor ID</label>
+                    <select class="custom-select" id="visitorIDs" name="visitorID" min="1">
+                        {{#each visitorIDs}}
+                            <option>{{visitorID}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="col-3">
+                    <label for="reservationDate">Reservation Date</label>
+                    <input type="date" class="form-control" name ="reservationDate" required>
+                </div>
+               <div class="col-auto d-flex align-items-end">
+                   <button type="submit" class="btn btn-primary mt-4">Insert</button>
+                </div>
+            </div>
+        </form>
+    </div>

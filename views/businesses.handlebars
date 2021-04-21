@@ -1,0 +1,171 @@
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">NPRS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/reserve">Reserve</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/parks">Parks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/reservations">Reservations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/visitors">Visitors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/businesses">Businesses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/services">Services</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <h1 class="display-4 text-center">Businesses</h1>
+        <p class="lead text-center">Insert/Update/Delete a Business.</p>
+        <p class="text-center text-danger">GRADER: Please review page in Firefox</p>
+    </div>
+    <div class="container pb-5">
+        <p class="lead text-center">Table data can be edited directly, then click Update to save to database. Remove Park ID to remove the relationship.</p>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Park ID (NULLable)</th>
+                <th scope="col">Business Name</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Street Address</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col">Zip Code</th>
+                <th scope="col" class="text-center col-2">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+                {{#each businesses}}
+                    <tr>
+                        <th scope="row">{{businessID}}</th>
+                        <td contenteditable>{{parkID}}</td>
+                        <td contenteditable>{{businessName}}</td>
+                        <td contenteditable>{{telephone}}</td>
+                        <td contenteditable>{{streetAddress}}</td>
+                        <td contenteditable>{{city}}</td>
+                        <td contenteditable>{{state}}</td>
+                        <td contenteditable>{{zipCode}}</td>
+                        <td class="text-center col-2">
+                            <button type="submit" class="btn btn-sm btn-info mr-1" onclick="updateBusiness(this)">Update</button>
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="deleteBusiness({{businessID}})">Delete</button>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <hr class="border-secondary">
+        <h2 class="text-center">Insert a Business</h2>
+        <p class="lead text-center">All fields are required.</p>
+        <form id="insertBusiness" action="/businesses" method ="post">
+            <div class="form-row">
+                <div class="form-group col-2">
+                    <label for="parkID">Park ID</label>
+                    <select class="custom-select" id="parkIDs" name="parkID" min="1">
+                        {{#each parkIDs}}
+                            <option>{{parkID}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="form-group col-6">
+                    <label for="businessName">Business Name</label>
+                    <input type="text" class="form-control" name="businessName" required>
+                </div>
+                <div class="form-group col-4">
+                    <label for="telephone">Phone Number</label>
+                    <input type="tel" class="form-control" name="telephone" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="streetAddress">Street Address</label>
+                <input type="text" class="form-control" name="streetAddress" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" name="city" required>
+                </div>
+                <div class="form-group col-4">
+                    <label for="state">State</label>
+                    <select select id="state" class="form-control" name="state">
+                        <option>Alabama</option>
+                        <option>Alaska</option>
+                        <option>American Samoa</option>
+                        <option>Arizona</option>
+                        <option>Arkansas</option>
+                        <option>California</option>
+                        <option>Colorado</option>
+                        <option>Connecticut</option>
+                        <option>Delaware</option>
+                        <option>District Of Columbia</option>
+                        <option>Florida</option>
+                        <option>Georgia</option>
+                        <option>Guam</option>
+                        <option>Hawaii</option>
+                        <option>Idaho</option>
+                        <option>Illinois</option>
+                        <option>Indiana</option>
+                        <option>Iowa</option>
+                        <option>Kansas</option>
+                        <option>Kentucky</option>
+                        <option>Louisiana</option>
+                        <option>Maine</option>
+                        <option>Maryland</option>
+                        <option>Massachusetts</option>
+                        <option>Michigan</option>
+                        <option>Minnesota</option>
+                        <option>Mississippi</option>
+                        <option>Missouri</option>
+                        <option>Montana</option>
+                        <option>Nebraska</option>
+                        <option>Nevada</option>
+                        <option>New Hampshire</option>
+                        <option>New Jersey</option>
+                        <option>New Mexico</option>
+                        <option>New York</option>
+                        <option>North Carolina</option>
+                        <option>North Dakota</option>
+                        <option>Northern Mariana Islands</option>
+                        <option>Ohio</option>
+                        <option>Oklahoma</option>
+                        <option>Oregon</option>
+                        <option>Pennsylvania</option>
+                        <option>Puerto Rico</option>
+                        <option>Rhode Island</option>
+                        <option>South Carolina</option>
+                        <option>South Dakota</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>US Minor Outlying Islands</option>
+                        <option>Utah</option>
+                        <option>Vermont</option>
+                        <option>Virgin Islands</option>
+                        <option>Virginia</option>
+                        <option>Washington</option>
+                        <option>West Virginia</option>
+                        <option>Wisconsin</option>
+                        <option>Wyoming</option>
+                    </select>
+                </div>
+                <div class="form-group col-2">
+                    <label for="zipCode">Zip Code</label>
+                    <input type="text" class="form-control" name="zipCode" required>
+                </div>
+            </div>
+            <div class="col-auto text-center">
+                <button type="submit" class="btn btn-primary mb-2">Insert</button>
+            </div>
+        </form>
+    </div>

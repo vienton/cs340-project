@@ -1,0 +1,75 @@
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">NPRS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/reserve">Reserve</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/parks">Parks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/reservations">Reservations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/visitors">Visitors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/businesses">Businesses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/services">Services</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <h1 class="display-4 text-center">Business Services</h1>
+        <p class="lead text-center">Insert/Update/Delete a Business Service.</p>
+        <p class="text-center text-danger">GRADER: Please review page in Firefox</p>
+    </div>
+    <div class="container pb-5">
+        <p class="lead text-center">Table data can be edited directly, then click Update to save to database.</p>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Business ID</th>
+                <th scope="col">Service ID</th>
+                <th scope="col" class="text-center col-2">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+                {{#each businessservices}}
+                    <tr>
+                        <th scope="row">{{businessServiceID}}</th>
+                        <td contenteditable>{{businessID}}</td>
+                        <td contenteditable>{{serviceID}}</td>
+                        <td class="text-center col-2">
+                            <button type="submit" class="btn btn-sm btn-info mr-1" onclick="updateBusinessService(this)">Update</button>
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="deleteBusinessService({{businessServiceID}})">Delete</button>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <hr class="border-secondary">
+        <h2 class="text-center">Insert a Business Service</h2>
+        <p class="lead text-center">All fields are required.</p>
+        <form id="insertBusinessServices" action="/business-services" method ="post">
+            <div class="form-row">
+                <div class="col-2">
+                    <input type="number" class="form-control" placeholder="Business ID" name = "businessID" min="1" required>
+                </div>
+                <div class="col-3">
+                    <input type="number" class="form-control" placeholder="Service ID" name = "serviceID" min="1" required>
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-2">Insert</button>
+                </div>
+            </div>
+        </form>
+    </div>

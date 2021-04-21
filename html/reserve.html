@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../public/css/bootstrap.css">
+    <title>U.S. National Parks Reservation System</title>
+</head>
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="../public/index.html">NPRS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="reserve.html">Reserve</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="parks.html">Parks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="reservations.html">Reservations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="visitors.html">Visitors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="businesses.html">Businesses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="services.html">Services</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <h1 class="display-4 text-center">Make Reservation</h1>
+            <p class="lead text-center">Search for a park by its name or browse for parks located in a state.</p>
+        <div class="container pt-5">
+            <div class="d-inline-block col-7">
+                <form id="parkSearch">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search by Park Name" id="parkSearchString">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="searchButton">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="d-inline-block col-4">
+                <form id="parkFilter">
+                    <div class="input-group">
+                        <select class="custom-select" id="stateSelectString">
+                            <option selected>Select Location</option>
+                            <option value="AL">American Samoa</option>
+                            <option value="AK">Colorado</option>
+                            <option value="AZ">Maine</option>
+                            <option value="CA">South Dakota</option>
+                            <option value="CO">Utah</option>
+                        </select>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="filterButton">Browse</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <p class="lead text-center">Make sure to enter all data for a given row, then check the Select box to select a park for reservation.</p>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col" class="col-4">Park Name</th>
+                    <th scope="col">State</th>
+                    <th scope="col">Acreage</th>
+                    <th scope="col">Capacity</th>
+                    <th scope="col">Reserve Date</th>
+                    <th scope="col">Group Size</th>
+                    <th scope="col">Overnight</th>
+                    <th scope="col">Select</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Acadia National Park</td>
+                    <td>Maine</td>
+                    <td>49,076</td>
+                    <td>10,000</td>
+                    <td><input type="date" class="custom-control p-0 col-12"></td>
+                    <td><input type="number" class="custom-control p-0 col-12"></td>
+                    <td class="text-center"><input type="checkbox"></td>
+                    <td class="text-center"><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>National Park of American Samoa</td>
+                    <td>American Samoa</td>
+                    <td>8,257</td>
+                    <td>200</td>
+                    <td><input type="date" class="custom-control p-0 col-12"></td>
+                    <td><input type="number" class="custom-control p-0 col-12"></td>
+                    <td class="text-center"><input type="checkbox"></td>
+                    <td class="text-center"><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Arches National Park</td>
+                    <td>Utah</td>
+                    <td>76,679</td>
+                    <td>4,500</td>
+                    <td><input type="date" class="custom-control p-0 col-12"></td>
+                    <td><input type="number" class="custom-control p-0 col-12"></td>
+                    <td class="text-center"><input type="checkbox"></td>
+                    <td class="text-center"><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Badlands National Park</td>
+                    <td>South Dakota</td>
+                    <td>242,756</td>
+                    <td>2,700</td>
+                    <td><input type="date" class="custom-control p-0 col-12"></td>
+                    <td><input type="number" class="custom-control p-0 col-12"></td>
+                    <td class="text-center"><input type="checkbox"></td>
+                    <td class="text-center"><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>Rocky Mountain National Park</td>
+                    <td>Colorado</td>
+                    <td>265,807</td>
+                    <td>12,800</td>
+                    <td><input type="date" class="custom-control p-0 col-12"></td>
+                    <td><input type="number" class="custom-control p-0 col-12"></td>
+                    <td class="text-center"><input type="checkbox"></td>
+                    <td class="text-center"><input type="checkbox"></td>
+                </tr>
+            </tbody>
+        </table>
+        <hr class="border-secondary">
+        <p class="lead text-center">Enter your registered email address below to automatically fill the form with your contact information.</p>
+        <div class="input-group mb-3">
+            <input type="email" class="form-control col-6" placeholder="Email Address">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Lookup</button>
+            </div>
+        </div>
+        <hr>
+        <h2 class="text-center">Contact Information</h2>
+        <p class="lead text-center">All fields are required.</p>
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" id="firstName" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="emailAddress">Email Address</label>
+                    <input type="email" class="form-control" id="emailAddress" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="telephone">Phone Number</label>
+                    <input type="tel" class="form-control" id="telephone" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="streetAddress">Street Address</label>
+                <input type="text" class="form-control" id="streetAddress" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" id="city" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="state">State</label>
+                    <select id="state" class="form-control">
+                        <option selected>Select</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="zipCode">Zip Code</label>
+                    <input type="text" class="form-control" id="zipCode" required>
+                </div>
+            </div>
+        </form>
+        <div class="text-center pt-3">
+            <button type="button" class="btn btn-primary btn-lg mb-2">Confirm Reservation</button>
+        </div>
+    </div>
+</body>
+     <script src="../public/js/bootstrap.js"></script>
+</html>

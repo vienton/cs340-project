@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../public/css/bootstrap.css">
+    <title>U.S. National Parks Reservation System</title>
+</head>
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="../public/index.html">NPRS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="reserve.html">Reserve</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="parks.html">Parks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="reservations.html">Reservations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="visitors.html">Visitors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="businesses.html">Businesses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="services.html">Services</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <h1 class="display-4 text-center">Business Services</h1>
+        <p class="lead text-center">Insert/Update/Delete a Business Service.</p>
+        <p class="lead text-center">This is a static page. If you're seeing this the handlebars template isn't working.</p>
+    </div>
+    <div class="container pb-5">
+        <p class="lead text-center">Table data can be edited directly, then click Update to save to database.</p>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Business ID</th>
+                <th scope="col">Service ID</th>
+                <th scope="col" class="text-center col-2">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>1</td>
+                <td>8</td>
+                <td class="text-center col-2">
+                    <button type="submit" class="btn btn-sm btn-info mr-1">Update</button>
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>1</td>
+                <td>16</td>
+                <td class="text-center col-2">
+                    <button type="submit" class="btn btn-sm btn-info mr-1">Update</button>
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>1</td>
+                <td>22</td>
+                <td class="text-center col-2">
+                    <button type="submit" class="btn btn-sm btn-info mr-1">Update</button>
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>1</td>
+                <td>17</td>
+                <td class="text-center col-2">
+                    <button type="submit" class="btn btn-sm btn-info mr-1">Update</button>
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>2</td>
+                <td>16</td>
+                <td class="text-center col-2">
+                    <button type="submit" class="btn btn-sm btn-info mr-1">Update</button>
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+                <td>2</td>
+                <td>17</td>
+                <td class="text-center col-2">
+                    <button type="submit" class="btn btn-sm btn-info mr-1">Update</button>
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <hr class="border-secondary">
+        <h2 class="text-center">Insert a Business Service</h2>
+        <p class="lead text-center">All fields are required.</p>
+        <form>
+            <div class="form-row">
+                <div class="col-2">
+                    <input type="number" class="form-control" placeholder="Business ID" required>
+                </div>
+                <div class="col-3">
+                    <input type="number" class="form-control" placeholder="Service ID" required>
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-2">Insert</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+<script src="../public/js/bootstrap.js"></script>
+</html>

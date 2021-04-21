@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../public/css/bootstrap.css">
+    <title>U.S. National Parks Reservation System</title>
+</head>
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="../public/index.html">NPRS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="reserve.html">Reserve</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="parks.html">Parks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="reservations.html">Reservations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="visitors.html">Visitors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="businesses.html">Businesses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="services.html">Services</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <h1 class="display-4 text-center">Visitors</h1>
+        <p class="lead text-center">Insert/Update/Delete a Visitor.</p>
+        <p class="lead text-center">This is a static page. If you're seeing this the handlebars template isn't working.</p>
+    </div>
+    <div class="container pb-5">
+        <p class="lead text-center">Table data can be edited directly, then click Update to save to database.</p>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email Address</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Street Address</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col">Zip Code</th>
+                <th scope="col" class="text-center col-2">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td contenteditable>Martin</td>
+                <td contenteditable>Barry</td>
+                <td contenteditable>marbarry@hotmail.com</td>
+                <td contenteditable>4085698416</td>
+                <td contenteditable>489 Ron Davies Boulevard</td>
+                <td contenteditable>Boulder</td>
+                <td contenteditable>Colorado</td>
+                <td contenteditable>80011</td>
+                <td class="text-center col-2">
+                    <button type="submit" class="btn btn-sm btn-info mr-1">Update</button>
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td contenteditable>Jonas</td>
+                <td contenteditable>Romney</td>
+                <td contenteditable>jonrom@gmail.com</td>
+                <td contenteditable>5205697416</td>
+                <td contenteditable>829 Columbus Boulevard</td>
+                <td contenteditable>Tuscon</td>
+                <td contenteditable>Arizona</td>
+                <td contenteditable>80011</td>
+                <td class="text-center col-2">
+                    <button type="submit" class="btn btn-sm btn-info mr-1">Update</button>
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td contenteditable>Jon</td>
+                <td contenteditable>Roger</td>
+                <td contenteditable>jonroger@gmail.com</td>
+                <td contenteditable>2165298316</td>
+                <td contenteditable>369 Regal Boulevard</td>
+                <td contenteditable>Dayton</td>
+                <td contenteditable>Ohio</td>
+                <td contenteditable>43001</td>                
+                <td class="text-center col-2">
+                    <button type="submit" class="btn btn-sm btn-info mr-1">Update</button>
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td contenteditable>Jennifer</td>
+                <td contenteditable>Rhodes</td>
+                <td contenteditable>jenrhodes@gmail.com</td>
+                <td contenteditable>6195698916</td>
+                <td contenteditable>242 Telephone Street</td>
+                <td contenteditable>Washington</td>
+                <td contenteditable>Utah</td>
+                <td contenteditable>84780</td>                
+                <td class="text-center col-2">
+                    <button type="submit" class="btn btn-sm btn-info mr-1">Update</button>
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td contenteditable>Michael</td>
+                <td contenteditable>Angelo</td>
+                <td contenteditable>micah@gmail.com</td>
+                <td contenteditable>4085238416</td>
+                <td contenteditable>226 Jade Street</td>
+                <td contenteditable>Davis</td>
+                <td contenteditable>California</td>
+                <td contenteditable>95126</td>                
+                <td class="text-center col-2">
+                    <button type="submit" class="btn btn-sm btn-info mr-1">Update</button>
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <hr class="border-secondary">
+        <h2 class="text-center">Insert a Visitor</h2>
+        <p class="lead text-center">All fields are required.</p>
+        <form>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" id="firstName" required>
+                </div>
+                <div class="form-group col-6">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label for="emailAddress">Email Address</label>
+                    <input type="email" class="form-control" id="emailAddress" required>
+                </div>
+                <div class="form-group col-6">
+                    <label for="telephone">Phone Number</label>
+                    <input type="tel" class="form-control" id="telephone" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="streetAddress">Street Address</label>
+                <input type="text" class="form-control" id="streetAddress" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" id="city" required>
+                </div>
+                <div class="form-group col-4">
+                    <label for="state">State</label>
+                    <select id="state" class="form-control">
+                        <option selected>Select</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                    </select>
+                </div>
+                <div class="form-group col-2">
+                    <label for="zipCode">Zip Code</label>
+                    <input type="text" class="form-control" id="zipCode" required>
+                </div>
+            </div>
+            <div class="col-auto text-center">
+                <button type="submit" class="btn btn-primary mb-2">Insert</button>
+            </div>
+        </form>
+    </div>
+</body>
+<script src="../public/js/bootstrap.js"></script>
+</html>

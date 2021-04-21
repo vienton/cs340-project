@@ -1,0 +1,90 @@
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">NPRS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/reserve">Reserve</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/parks">Parks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/reservations">Reservations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/visitors">Visitors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/businesses">Businesses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/services">Services</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <h1 class="display-4 text-center">Park Reservations</h1>
+            <p class="lead text-center">Insert/Update/Delete a Park Reservation.</p>
+            <p class="text-center text-danger">GRADER: Please review page in Firefox</p>
+    </div>
+    <div class="container pb-5">
+        <p class="lead text-center">Table data can be edited directly, then click Update to save to database.</p>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Park ID</th>
+                    <th scope="col">Res ID</th>
+                    <th scope="col">Group Size</th>
+                    <th scope="col">Date (Y-M-D)</th>
+                    <th scope="col">Overnight (Y=1/N=0)</th>
+                    <th scope="col" class="text-center col-2">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each parkReservations}}
+                    <tr>
+                        <th scope="row">{{parkReservationID}}</th>
+                        <td contenteditable>{{parkID}}</td>
+                        <td contenteditable>{{reservationID}}</td>
+                        <td contenteditable>{{groupSize}}</td>
+                        <td contenteditable>{{date}}</td>
+                        <td contenteditable>{{overnight}}</td>
+                        <td class="text-center col-2">
+                            <button type="submit" class="btn btn-sm btn-info mr-1" onclick="updateParkReservation(this)">Update</button>
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="deleteParkReservation({{parkReservationID}})">Delete</button>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <hr class="border-secondary">
+        <h2 class="text-center">Insert a Park Reservation</h2>
+        <p class="lead text-center">All fields are required.</p>
+        <form id="insertParkReservation" action="/park-reservations" method ="post">
+            <div class="form-row">
+                <div class="col-2">
+                    <input type="number" class="form-control" placeholder="Park ID" name = "parkID" min="1" required>
+                </div>
+                <div class="col-2">
+                    <input type="number" class="form-control" placeholder="Res ID" name = "reservationID" min="1" required>
+                </div>
+                <div class="col-2">
+                    <input type="number" class="form-control" placeholder="Group Size" name = "groupSize" min="1" required>
+                </div>
+                <div class="col-3">
+                    <input type="date" class="form-control" name= "date" required>
+                </div>
+                <div class="col-2">
+                    <input type="text" class="form-control" placeholder="Overnight (Y=1/N=0)" name = "overnight" required>
+                </div>
+               <div class="col-auto">
+                   <button type="submit" class="btn btn-primary mb-2">Insert</button>
+                </div>
+            </div>
+        </form>
+    </div>
