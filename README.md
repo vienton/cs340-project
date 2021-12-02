@@ -1,5 +1,5 @@
 # cs340-project
 
-This is the portfolio assignment for CS340.
+This is the portfolio assignment for CS340. It is a website where visitors can schedule reservations for any of the U.S. National Parks. 
 
-Run the app (from inside the root folder): `node app.js`
+It was built with Node.js, Bootstrap, and MariaDB.
